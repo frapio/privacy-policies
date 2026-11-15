@@ -1,206 +1,346 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GeneAlley – Privacy Policy</title>
+<title>GeneAlley – Il tuo albero genealogico, sul tuo telefono</title>
+<meta name="description" content="GeneAlley è l'app Android per costruire l'albero genealogico della tua famiglia con foto, date, luoghi e ricorrenze. Funziona offline: i dati restano sul telefono.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{--bg:#fbfaf7;--fg:#22252a;--muted:#5f6670;--line:#e3e0d8;--accent:#2f6b5a;--card:#fff}
-  @media (prefers-color-scheme:dark){:root{--bg:#16181b;--fg:#e8e6e1;--muted:#a3a8ae;--line:#2c3035;--accent:#7cc2ab;--card:#1d2024}}
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-  .wrap{max-width:760px;margin:0 auto;padding:40px 22px 64px}
-  header{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:20px;margin-bottom:28px}
-  h1{font-size:1.9rem;margin:0 0 4px;letter-spacing:-.01em}
-  .sub{color:var(--muted);margin:0;font-size:.95rem}
-  .lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
-  .lang a{padding:6px 14px;text-decoration:none;color:var(--muted);font-size:.9rem;font-weight:600}
-  .lang a.on{background:var(--accent);color:var(--bg)}
-  h2{font-size:1.15rem;margin:34px 0 8px;color:var(--accent)}
-  h3{font-size:1rem;margin:18px 0 4px}
-  p,li{margin:0 0 10px}
-  ul{padding-left:22px;margin:0 0 12px}
-  a{color:var(--accent)}
-  .box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:18px 0}
-  table{width:100%;border-collapse:collapse;margin:10px 0 14px;font-size:.93rem;background:var(--card)}
-  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
-  th{font-weight:600}
-  footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:.88rem}
-  [data-l]{display:none}
-  body.it [data-l="it"], body.en [data-l="en"]{display:block}
+  :root{
+    --paper:#F2EBDD; --cream:#FBF7EF; --ink:#2F3A2F; --muted:#5E6B5C;
+    --green:#3F5B45; --sage:#9DB39A; --mint:#DCE8D6; --peach:#F1C6A8;
+    --terra:#C2714F; --line:#E2D8C4; --pink:#E7A3B1; --blue:#8FB6D6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Figtree",system-ui,sans-serif;color:var(--ink);line-height:1.6;
+    background:
+      radial-gradient(ellipse 60% 40% at 10% 0%, rgba(157,179,154,.35), transparent 70%),
+      radial-gradient(ellipse 50% 35% at 95% 15%, rgba(241,198,168,.35), transparent 70%),
+      radial-gradient(ellipse 70% 40% at 50% 100%, rgba(157,179,154,.25), transparent 70%),
+      var(--paper);
+    min-height:100vh;
+  }
+  a{color:var(--green)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:600;line-height:1.2;color:var(--green)}
+  .brand{font-family:"Great Vibes",cursive;font-weight:400;color:var(--green)}
+
+  /* nav */
+  nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+  nav .brand{font-size:2.1rem;text-decoration:none;display:flex;align-items:center;gap:10px}
+  nav ul{list-style:none;display:flex;gap:26px}
+  nav ul a{text-decoration:none;color:var(--muted);font-weight:500}
+  nav ul a:hover{color:var(--terra)}
+
+  /* hero */
+  .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding:40px 0 80px}
+  .hero .tag{display:inline-block;background:var(--mint);color:var(--green);font-weight:600;font-size:.85rem;
+    padding:6px 14px;border-radius:999px;margin-bottom:18px}
+  .hero h1{font-size:clamp(2.2rem,4.5vw,3.4rem);margin-bottom:18px}
+  .hero h1 .brand{font-size:1.35em;display:block;margin-bottom:4px}
+  .hero p.lead{font-size:1.15rem;color:var(--muted);max-width:34em;margin-bottom:30px}
+  .cta{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;
+    font-weight:600;text-decoration:none;transition:transform .15s, box-shadow .15s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(63,91,69,.18)}
+  .btn-primary{background:var(--green);color:var(--cream)}
+  .btn-ghost{background:var(--cream);color:var(--green);border:1px solid var(--line)}
+  .note{font-size:.9rem;color:var(--muted);margin-top:16px}
+
+  /* phone */
+  .phone-stage{position:relative;display:flex;justify-content:center}
+  .phone-stage::before{content:"";position:absolute;inset:8% 4%;border-radius:50%;
+    background:radial-gradient(circle, rgba(241,198,168,.55), rgba(157,179,154,.25) 55%, transparent 72%);filter:blur(10px)}
+  .phone{position:relative;width:300px;height:610px;background:#1f2a22;border-radius:44px;padding:12px;
+    box-shadow:0 30px 60px rgba(47,58,47,.28), inset 0 0 0 2px #3a473d}
+  .screen{width:100%;height:100%;border-radius:34px;overflow:hidden;background:var(--paper);display:flex;flex-direction:column}
+  .screen-top{display:flex;align-items:center;justify-content:space-between;padding:22px 18px 8px}
+  .screen-top .brand{font-size:1.7rem}
+  .screen-top .pill{font-size:.7rem;background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:var(--muted)}
+  .screen svg.tree{flex:1;width:100%}
+  .screen-nav{display:flex;justify-content:space-around;align-items:center;background:var(--cream);
+    margin:8px 12px 14px;border-radius:22px;padding:8px 6px;border:1px solid var(--line);font-size:.62rem;color:var(--muted)}
+  .screen-nav span{display:flex;flex-direction:column;align-items:center;gap:2px}
+  .screen-nav .on{background:var(--peach);color:var(--ink);border-radius:999px;padding:3px 10px}
+  .screen-nav .add{width:30px;height:30px;border-radius:50%;background:var(--mint);display:grid;place-items:center;
+    font-size:1.2rem;color:var(--green);font-weight:600}
+
+  /* sections */
+  section{padding:70px 0}
+  .section-head{text-align:center;max-width:640px;margin:0 auto 46px}
+  .section-head h2{font-size:clamp(1.8rem,3vw,2.4rem);margin-bottom:12px}
+  .section-head p{color:var(--muted)}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .card{background:var(--cream);border:1px solid var(--line);border-radius:22px;padding:28px;
+    transition:transform .2s, box-shadow .2s}
+  .card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(63,91,69,.10)}
+  .card .ico{width:52px;height:52px;border-radius:16px;background:var(--mint);display:grid;place-items:center;margin-bottom:16px}
+  .card h3{font-size:1.2rem;margin-bottom:8px}
+  .card p{color:var(--muted);font-size:.97rem}
+
+  .band{background:var(--green);color:var(--cream);border-radius:32px;padding:56px;display:grid;
+    grid-template-columns:1fr 1fr;gap:40px;align-items:center;position:relative;overflow:hidden}
+  .band h2{color:var(--cream);font-size:2rem;margin-bottom:14px}
+  .band p{opacity:.9}
+  .band ul{list-style:none;display:grid;gap:14px}
+  .band li{background:rgba(251,247,239,.08);border:1px solid rgba(251,247,239,.18);border-radius:16px;padding:14px 18px}
+  .band li strong{color:var(--peach)}
+
+  .langs{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:8px}
+  .langs span{background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:8px 18px;font-weight:500}
+
+  .final{text-align:center}
+  .final .brand{font-size:3.4rem;display:block;margin-bottom:6px}
+  .final p{color:var(--muted);max-width:520px;margin:0 auto 28px}
+
+  footer{border-top:1px solid var(--line);padding:30px 0 40px;font-size:.88rem;color:var(--muted)}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+
+  @media (max-width:900px){
+    .hero{grid-template-columns:1fr;text-align:center}
+    .hero p.lead{margin-left:auto;margin-right:auto}
+    .cta{justify-content:center}
+    .grid{grid-template-columns:1fr 1fr}
+    .band{grid-template-columns:1fr;padding:36px}
+    nav ul{display:none}
+  }
+  @media (max-width:600px){ .grid{grid-template-columns:1fr} .phone{transform:scale(.9)} }
 </style>
 </head>
-<body class="it">
-<div class="wrap">
+<body>
 
-<header>
-  <div>
-    <h1>GeneAlley</h1>
-    <p class="sub" data-l="it">Informativa sulla privacy · in vigore dal 9 novembre 2026</p>
-    <p class="sub" data-l="en">Privacy Policy · effective 9 November 2026</p>
-  </div>
-  <nav class="lang"><a href="#it" id="b-it">IT</a><a href="#en" id="b-en">EN</a></nav>
+<header class="wrap">
+  <nav>
+    <a class="brand" href="#">
+      <svg width="34" height="34" viewBox="0 0 40 40" aria-hidden="true">
+        <circle cx="20" cy="20" r="19" fill="#DCE8D6" stroke="#3F5B45" stroke-width="1.5"/>
+        <path d="M20 32 V18 M20 24 C15 22 13 18 13 14 M20 21 C25 19 27 15 27 11" stroke="#7A5A43" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <ellipse cx="13" cy="12" rx="3.2" ry="2" fill="#9DB39A" transform="rotate(-30 13 12)"/>
+        <ellipse cx="27" cy="9.5" rx="3.2" ry="2" fill="#6F8F6B" transform="rotate(30 27 9.5)"/>
+        <ellipse cx="20" cy="15" rx="3" ry="1.8" fill="#9DB39A" transform="rotate(90 20 15)"/>
+      </svg>
+      GeneAlley
+    </a>
+    <ul>
+      <li><a href="#funzioni">Funzioni</a></li>
+      <li><a href="#privacy">Privacy</a></li>
+      <li><a href="#scarica">Scarica</a></li>
+    </ul>
+  </nav>
 </header>
 
-<!-- ======================= ITALIANO ======================= -->
-<main data-l="it">
+<main>
+  <!-- HERO -->
+  <div class="wrap hero">
+    <div>
+      <span class="tag">App Android · gratuita</span>
+      <h1><span class="brand">GeneAlley</span>La storia della tua famiglia, ramo dopo ramo.</h1>
+      <p class="lead">Costruisci l'albero genealogico con foto, date e luoghi, ricorda compleanni e anniversari
+        ed esporta un PDF su pergamena da stampare. Tutto resta sul tuo telefono, anche senza internet.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=it.pfp.GeneAlley">
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 2.5v19l10-9.5L4 2.5zm11.3 8.2 2.6-2.5 3.2 1.8c1.2.7 1.2 2.3 0 3l-3.2 1.8-2.6-2.5zm-.9.8L5.2 21.9l10.6-6.1-1.4-4.3zm0-1L15.8 6.2 5.2.1l9.2 9.4z"/></svg>
+          Disponibile su Google Play
+        </a>
+        <a class="btn btn-ghost" href="#funzioni">Scopri le funzioni</a>
+      </div>
+      <p class="note">Android 8.0 o successivo · Italiano, English, Français, Deutsch, Español</p>
+    </div>
 
-<div class="box">
-<strong>In breve.</strong> GeneAlley non ha account né server propri: l'albero genealogico, le foto e le note restano sul tuo telefono. Alcune funzioni facoltative contattano servizi esterni (ricerca dei comuni, sfondo della mappa) e l'app mostra annunci pubblicitari tramite Google AdMob, previo consenso dove richiesto.
-</div>
+    <!-- Illustrazione: telefono con albero a ritratti -->
+    <div class="phone-stage">
+      <div class="phone" role="img" aria-label="Schermata di GeneAlley con l'albero genealogico a ritratti">
+        <div class="screen">
+          <div class="screen-top"><span class="brand">GeneAlley</span><span class="pill">Tutti i rami</span></div>
+          <svg class="tree" viewBox="0 0 276 420" aria-hidden="true">
+            <defs>
+              <linearGradient id="pa" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9D9C6"/><stop offset="1" stop-color="#C9B49E"/></linearGradient>
+              <linearGradient id="pb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D7E3D1"/><stop offset="1" stop-color="#A9BFA4"/></linearGradient>
+              <g id="leaf"><ellipse rx="5" ry="2.6" fill="#8FAA8A"/></g>
+              <g id="leaf2"><ellipse rx="4.5" ry="2.3" fill="#6F8F6B"/></g>
+              <g id="face">
+                <circle r="11" cy="-4" fill="#F4E3D3"/>
+                <path d="M-17 18 a17 13 0 0 1 34 0z" fill="#B9A08A"/>
+              </g>
+            </defs>
+            <!-- rami -->
+            <g stroke="#7A5A43" fill="none" stroke-linecap="round">
+              <path d="M70 92 C70 120 104 118 104 150 M206 92 C206 120 172 118 172 150" stroke-width="3.4"/>
+              <path d="M104 150 C110 156 166 156 172 150" stroke-width="2.6"/>
+              <path d="M138 154 C140 190 138 210 138 236" stroke-width="3.2"/>
+              <path d="M138 236 C120 250 74 250 66 282 M138 236 C138 256 138 262 138 282 M138 236 C156 250 202 250 210 282" stroke-width="2.4"/>
+            </g>
+            <!-- foglie -->
+            <use href="#leaf" transform="translate(78 112) rotate(-35)"/>
+            <use href="#leaf2" transform="translate(96 132) rotate(25)"/>
+            <use href="#leaf" transform="translate(198 110) rotate(35)"/>
+            <use href="#leaf2" transform="translate(182 133) rotate(-25)"/>
+            <use href="#leaf" transform="translate(146 196) rotate(60)"/>
+            <use href="#leaf2" transform="translate(130 214) rotate(-60)"/>
+            <use href="#leaf" transform="translate(100 252) rotate(-15)"/>
+            <use href="#leaf2" transform="translate(178 252) rotate(15)"/>
+            <use href="#leaf" transform="translate(145 265) rotate(70)"/>
 
-<h2>1. Titolare del trattamento</h2>
-<p>L'app GeneAlley (<code>it.pfp.GeneAlley</code>) è sviluppata da Francesco Pio Prencipe, sviluppatore indipendente. Contatto per la privacy: <strong>francescopio.prencipe@gmail.com</strong>.</p>
+            <!-- nonni -->
+            <g transform="translate(70 58)">
+              <circle r="30" fill="url(#pa)" stroke="#8FB6D6" stroke-width="4"/>
+              <clipPath id="c1"><circle r="27"/></clipPath><g clip-path="url(#c1)"><use href="#face" transform="translate(0 6)"/></g>
+            </g>
+            <g transform="translate(206 58)">
+              <circle r="30" fill="url(#pb)" stroke="#E7A3B1" stroke-width="4"/>
+              <clipPath id="c2"><circle r="27"/></clipPath><g clip-path="url(#c2)"><use href="#face" transform="translate(0 6)"/></g>
+            </g>
+            <text x="70" y="22" text-anchor="middle" font-family="Figtree" font-size="9" fill="#5E6B5C">Nonno</text>
+            <text x="206" y="22" text-anchor="middle" font-family="Figtree" font-size="9" fill="#5E6B5C">Nonna</text>
 
-<h2>2. Dati che inserisci nell'app</h2>
-<p>Nell'app puoi inserire dati tuoi e dei tuoi familiari, anche defunti: nomi, sesso, date e luoghi di nascita e di morte, legami di parentela, matrimoni e unioni, note e fotografie con didascalie.</p>
-<ul>
-  <li>Questi dati sono salvati <strong>solo nella memoria del dispositivo</strong>, nel database e nella cartella privata dell'app. Lo sviluppatore non li riceve e non può accedervi.</li>
-  <li>Il backup automatico di Android è disattivato: i dati non vengono copiati su Google Drive senza la tua azione.</li>
-  <li>Se disinstalli l'app, i dati vengono cancellati. Puoi crearne una copia con <em>Backup</em> (file ZIP) e conservarla dove preferisci.</li>
-</ul>
-<p>Inserendo dati di altre persone, sei tu a deciderne l'uso: ti chiediamo di farlo in modo rispettoso, in particolare per i familiari viventi e per le note personali.</p>
+            <!-- genitori -->
+            <g transform="translate(104 168)">
+              <circle r="24" fill="url(#pb)" stroke="#8FB6D6" stroke-width="3.5"/>
+              <clipPath id="c3"><circle r="21.5"/></clipPath><g clip-path="url(#c3)"><use href="#face" transform="translate(0 5) scale(.8)"/></g>
+            </g>
+            <g transform="translate(172 168)">
+              <circle r="24" fill="url(#pa)" stroke="#E7A3B1" stroke-width="3.5"/>
+              <clipPath id="c4"><circle r="21.5"/></clipPath><g clip-path="url(#c4)"><use href="#face" transform="translate(0 5) scale(.8)"/></g>
+            </g>
+            <text x="104" y="206" text-anchor="middle" font-family="Figtree" font-size="9" fill="#2F3A2F" font-weight="600">Padre</text>
+            <text x="172" y="206" text-anchor="middle" font-family="Figtree" font-size="9" fill="#2F3A2F" font-weight="600">Madre</text>
 
-<h2>3. File che scegli di condividere</h2>
-<p>Le funzioni <em>Backup</em>, <em>Invia solo struttura</em>, <em>Invia struttura e foto</em>, la condivisione di un ramo e l'esportazione in PDF creano file che contengono dati personali. L'app li passa al sistema di condivisione di Android solo quando lo chiedi tu; la destinazione (email, Drive, messaggistica, stampa…) è scelta da te ed è regolata dall'informativa di quel servizio. Quando importi un file ricevuto, l'app mostra le differenze e applica solo ciò che confermi.</p>
+            <!-- figli -->
+            <g transform="translate(66 304)">
+              <circle r="22" fill="url(#pa)" stroke="#E7A3B1" stroke-width="3.5"/>
+              <clipPath id="c5"><circle r="19.5"/></clipPath><g clip-path="url(#c5)"><use href="#face" transform="translate(0 5) scale(.72)"/></g>
+            </g>
+            <g transform="translate(138 304)">
+              <circle r="26" fill="url(#pb)" stroke="#8FB6D6" stroke-width="4"/>
+              <circle r="31" fill="none" stroke="#F1C6A8" stroke-width="2.5" stroke-dasharray="3 4"/>
+              <clipPath id="c6"><circle r="23"/></clipPath><g clip-path="url(#c6)"><use href="#face" transform="translate(0 5) scale(.85)"/></g>
+            </g>
+            <g transform="translate(210 304)">
+              <circle r="22" fill="url(#pb)" stroke="#8FB6D6" stroke-width="3.5"/>
+              <clipPath id="c7"><circle r="19.5"/></clipPath><g clip-path="url(#c7)"><use href="#face" transform="translate(0 5) scale(.72)"/></g>
+            </g>
+            <text x="66" y="341" text-anchor="middle" font-family="Figtree" font-size="9" fill="#2F3A2F" font-weight="600">Sorella</text>
+            <text x="66" y="353" text-anchor="middle" font-family="Figtree" font-size="8" fill="#5E6B5C">* 1984</text>
+            <text x="138" y="348" text-anchor="middle" font-family="Fraunces" font-size="11" fill="#3F5B45" font-weight="600">Tu</text>
+            <text x="138" y="361" text-anchor="middle" font-family="Figtree" font-size="8" fill="#5E6B5C">* 12/03/1987</text>
+            <text x="210" y="341" text-anchor="middle" font-family="Figtree" font-size="9" fill="#2F3A2F" font-weight="600">Fratello</text>
+            <text x="210" y="353" text-anchor="middle" font-family="Figtree" font-size="8" fill="#5E6B5C">* 1991</text>
 
-<h2>4. Servizi esterni</h2>
+            <!-- rametti decorativi ai bordi -->
+            <g stroke="#9DB39A" stroke-width="1.4" fill="none" opacity=".7">
+              <path d="M6 400 C20 380 24 360 18 340"/><path d="M270 396 C258 378 254 360 262 344"/>
+            </g>
+            <use href="#leaf" transform="translate(14 378) rotate(-60)" opacity=".7"/>
+            <use href="#leaf2" transform="translate(21 356) rotate(50)" opacity=".7"/>
+            <use href="#leaf" transform="translate(262 376) rotate(60)" opacity=".7"/>
+            <circle cx="257" cy="356" r="2.6" fill="#C2714F" opacity=".7"/><circle cx="262" cy="361" r="2.2" fill="#C2714F" opacity=".7"/>
+          </svg>
+          <div class="screen-nav">
+            <span>⌂<small>Home</small></span>
+            <span class="on">❦ <small>Albero</small></span>
+            <span class="add">+</span>
+            <span>☺<small>Persone</small></span>
+            <span>⋯<small>Altro</small></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<h3>Ricerca dei comuni – Nominatim (OpenStreetMap)</h3>
-<p>Quando usi <em>Cerca</em> sul luogo di nascita o di morte, la ricerca automatica all'uscita dal campo o <em>Normalizza luoghi</em>, l'app invia a Nominatim <strong>solo il testo del luogo</strong> (es. "San Giovanni Rotondo"), senza nomi di persone né altri dati. Come ogni richiesta internet, il servizio riceve anche l'indirizzo IP del dispositivo. Puoi disattivare il servizio da <strong>Altro</strong>. Gestore: OpenStreetMap Foundation – <a href="https://osmfoundation.org/wiki/Privacy_Policy">informativa</a>.</p>
+  <!-- FUNZIONI -->
+  <section id="funzioni">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Tutto quello che serve per raccontare la tua famiglia</h2>
+        <p>Semplice da usare, curata nei dettagli, pensata per chi vuole custodire ricordi e legami.</p>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3F5B45" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M12 7.5v4M12 11.5c-4 0-7 2-7 5M12 11.5c4 0 7 2 7 5"/></svg></div>
+          <h3>Albero a ritratti</h3>
+          <p>Foto rotonde con nome, parentela e date. Linea diretta o tutti i rami con fratelli, zii e cugini, e la vista <em>Radici</em> fino a 12 generazioni.</p>
+        </div>
+        <div class="card">
+          <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3F5B45" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><circle cx="9" cy="11" r="2"/><path d="M21 16l-5-5-8 8"/></svg></div>
+          <h3>Foto per ogni persona</h3>
+          <p>Dalla galleria o dalla fotocamera, con ritaglio, zoom e rotazione, didascalie e una foto profilo dedicata.</p>
+        </div>
+        <div class="card">
+          <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3F5B45" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="5" width="16" height="15" rx="2.5"/><path d="M4 10h16M9 3v4M15 3v4"/><path d="M12 13.2l.9 1.8 2 .3-1.4 1.4.3 2-1.8-.9-1.8.9.3-2-1.4-1.4 2-.3z" fill="#F1C6A8" stroke="none"/></svg></div>
+          <h3>Ricorrenze</h3>
+          <p>Compleanni, anniversari di matrimonio e di chi non c'è più: GeneAlley te li ricorda all'avvio e nei prossimi 30 giorni.</p>
+        </div>
+        <div class="card">
+          <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3F5B45" stroke-width="1.8" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></div>
+          <h3>Mappa dei luoghi</h3>
+          <p>Comuni di nascita trovati e normalizzati in automatico, poi una mappa per vedere da dove viene la tua famiglia.</p>
+        </div>
+        <div class="card">
+          <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3F5B45" stroke-width="1.8" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4M9 13h7M9 17h5"/></svg></div>
+          <h3>PDF su pergamena</h3>
+          <p>Esporta l'albero in un PDF dal formato A4 fino ad A0, con rami fioriti e intestazione d'epoca: pronto da stampare o regalare.</p>
+        </div>
+        <div class="card">
+          <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3F5B45" stroke-width="1.8" stroke-linecap="round"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></svg></div>
+          <h3>Condividi con i parenti</h3>
+          <p>Invia tutta la struttura, le foto o un solo ramo: chi lo riceve vede le differenze e conferma cosa aggiornare.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<h3>Sfondo della mappa – CARTO</h3>
-<p>Quando apri la <strong>Mappa</strong>, l'app scarica le immagini dello sfondo da CARTO. La richiesta contiene l'area e lo zoom visualizzati, una chiave d'accesso dell'app, il nome del pacchetto dell'app e l'indirizzo IP. I segnaposto e le persone mostrate sulla mappa non vengono inviati. Le immagini restano in cache sul dispositivo fino a 30 giorni. Gestore: CARTO – <a href="https://carto.com/privacy">informativa</a>.</p>
+  <!-- PRIVACY -->
+  <section id="privacy">
+    <div class="wrap">
+      <div class="band">
+        <div>
+          <h2>I tuoi dati restano tuoi</h2>
+          <p>GeneAlley non ha account né server: nomi, date, note e foto sono salvati solo sul tuo telefono.
+            Funziona offline; internet serve soltanto per la mappa e per cercare i comuni.</p>
+        </div>
+        <ul>
+          <li><strong>Backup completo</strong> in un file ZIP, da conservare su Drive o sul PC.</li>
+          <li><strong>Parentele complete</strong>: genitori biologici, adottivi e affidatari; matrimoni, unioni civili, convivenze.</li>
+          <li><strong>Date anche parziali</strong>: basta l'anno, o mese e anno, quando non sai di più.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-<h3>Pubblicità – Google AdMob</h3>
-<p>Le schermate Home e Persone mostrano un banner e, una volta per avvio, può comparire un annuncio a schermo intero. Gli annunci sono forniti da Google AdMob, che può raccogliere e trattare:</p>
-<ul>
-  <li>l'ID pubblicità di Android, l'indirizzo IP e informazioni sul dispositivo (modello, sistema operativo, lingua);</li>
-  <li>dati sull'interazione con gli annunci (visualizzazioni, tocchi) e informazioni diagnostiche sull'SDK.</li>
-</ul>
-<p>Nello Spazio economico europeo, nel Regno Unito e in Svizzera, al primo avvio l'app chiede il consenso tramite la piattaforma di gestione del consenso di Google: puoi accettare annunci personalizzati, limitarti a quelli non personalizzati o gestire le singole finalità. AdMob non riceve i dati del tuo albero genealogico. Puoi reimpostare o eliminare l'ID pubblicità dalle impostazioni di Android (<em>Privacy → Annunci</em>). Maggiori informazioni: <a href="https://policies.google.com/technologies/partner-sites">come Google usa i dati delle app partner</a> e <a href="https://policies.google.com/privacy">informativa Google</a>.</p>
+  <!-- LINGUE -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Parla la lingua della tua famiglia</h2>
+        <p>Segue la lingua del telefono, oppure la scegli tu solo per GeneAlley. Tema chiaro o scuro, sempre in stile acquerello.</p>
+      </div>
+      <div class="langs">
+        <span>🇮🇹 Italiano</span><span>🇬🇧 English</span><span>🇫🇷 Français</span><span>🇩🇪 Deutsch</span><span>🇪🇸 Español</span>
+      </div>
+    </div>
+  </section>
 
-<table>
-<tr><th>Servizio</th><th>Quando</th><th>Dati inviati</th><th>Base giuridica (GDPR)</th></tr>
-<tr><td>Nominatim</td><td>Ricerca/normalizzazione luoghi, se attiva</td><td>Testo del luogo, IP</td><td>Esecuzione della funzione richiesta (art. 6.1.b) / legittimo interesse</td></tr>
-<tr><td>CARTO</td><td>Apertura della mappa</td><td>Area mappa, chiave app, pacchetto, IP</td><td>Esecuzione della funzione richiesta</td></tr>
-<tr><td>Google AdMob</td><td>Uso dell'app</td><td>ID pubblicità, IP, dati dispositivo e annunci</td><td>Consenso (art. 6.1.a) per annunci personalizzati; legittimo interesse per gli annunci non personalizzati, ove consentito</td></tr>
-</table>
-
-<h2>5. Autorizzazioni</h2>
-<ul>
-  <li><strong>Fotocamera</strong>: solo per scattare la foto di una persona, quando lo chiedi.</li>
-  <li><strong>Foto e file</strong>: tramite il selettore di sistema, l'app accede solo alle immagini e ai file che scegli tu.</li>
-  <li><strong>Internet</strong>: per ricerca dei luoghi, sfondo della mappa e annunci.</li>
-</ul>
-<p>L'app non usa la posizione del dispositivo, i contatti, il microfono né altri dati del telefono.</p>
-
-<h2>6. Conservazione e sicurezza</h2>
-<p>I dati dell'albero restano sul dispositivo finché non li elimini o disinstalli l'app. Le comunicazioni con i servizi esterni avvengono tramite connessione cifrata (HTTPS). Proteggi il telefono con un blocco schermo e conserva i file di backup in un luogo sicuro: contengono dati personali.</p>
-
-<h2>7. I tuoi diritti</h2>
-<p>Poiché i dati dell'albero sono solo sul tuo dispositivo, puoi consultarli, correggerli, esportarli ed eliminarli direttamente nell'app. Per i dati trattati da Google, OpenStreetMap Foundation e CARTO puoi rivolgerti a loro secondo le rispettive informative. Puoi revocare o modificare il consenso agli annunci in qualsiasi momento reinstallando l'app o dalle opzioni di consenso, quando disponibili. Hai inoltre diritto di proporre reclamo al Garante per la protezione dei dati personali (<a href="https://www.garanteprivacy.it">garanteprivacy.it</a>) o all'autorità del tuo Paese.</p>
-
-<h2>8. Minori</h2>
-<p>GeneAlley non è destinata a bambini sotto i 13 anni (sotto i 14 in Italia) e non raccoglie consapevolmente dati che li riguardano tramite la pubblicità. I dati di familiari minorenni inseriti nell'albero restano solo sul dispositivo di chi li inserisce.</p>
-
-<h2>9. Modifiche</h2>
-<p>Questa informativa può essere aggiornata, ad esempio se cambiano le funzioni dell'app o i servizi usati. La data in alto indica l'ultima versione.</p>
-
-<h2>10. Contatti</h2>
-<p>Per domande sulla privacy: <strong>francescopio.prencipe@gmail.com</strong>.</p>
-</main>
-
-<!-- ======================= ENGLISH ======================= -->
-<main data-l="en">
-
-<div class="box">
-<strong>In short.</strong> GeneAlley has no accounts and no servers of its own: your family tree, photos and notes stay on your phone. Some optional features contact external services (place search, map background), and the app shows ads through Google AdMob, with consent where required.
-</div>
-
-<h2>1. Data controller</h2>
-<p>GeneAlley (<code>it.pfp.GeneAlley</code>) is developed by Francesco Pio Prencipe, an independent developer. Privacy contact: <strong>francescopio.prencipe@gmail.com</strong>.</p>
-
-<h2>2. Data you enter in the app</h2>
-<p>You can enter data about yourself and your relatives, including deceased ones: names, sex, dates and places of birth and death, family relationships, marriages and unions, notes, and photos with captions.</p>
-<ul>
-  <li>This data is stored <strong>only on your device</strong>, in the app's private database and folder. The developer does not receive it and cannot access it.</li>
-  <li>Android automatic backup is disabled: data is not copied to Google Drive unless you do it yourself.</li>
-  <li>Uninstalling the app deletes the data. You can make a copy with <em>Backup</em> (ZIP file) and keep it wherever you like.</li>
-</ul>
-<p>When you enter data about other people, you decide how it is used: please do so respectfully, especially for living relatives and personal notes.</p>
-
-<h2>3. Files you choose to share</h2>
-<p><em>Backup</em>, <em>Send structure only</em>, <em>Send structure and photos</em>, branch sharing and PDF export create files containing personal data. The app hands them to Android's share sheet only when you ask; you choose the destination (email, Drive, messaging, printing…), which is governed by that service's privacy policy. When you import a received file, the app shows the differences and applies only what you confirm.</p>
-
-<h2>4. External services</h2>
-
-<h3>Place search – Nominatim (OpenStreetMap)</h3>
-<p>When you use <em>Search</em> on the place of birth or death, the automatic search when leaving the field, or <em>Normalize places</em>, the app sends Nominatim <strong>only the place text</strong> (e.g. "San Giovanni Rotondo"), never names of people or other data. Like any internet request, the service also receives your device's IP address. You can turn the service off under <strong>More</strong>. Operator: OpenStreetMap Foundation – <a href="https://osmfoundation.org/wiki/Privacy_Policy">privacy policy</a>.</p>
-
-<h3>Map background – CARTO</h3>
-<p>When you open the <strong>Map</strong>, the app downloads background images from CARTO. The request includes the visible area and zoom, the app's access key, the app package name and your IP address. Markers and the people on the map are not sent. Images are cached on the device for up to 30 days. Operator: CARTO – <a href="https://carto.com/privacy">privacy policy</a>.</p>
-
-<h3>Advertising – Google AdMob</h3>
-<p>The Home and People screens show a banner, and a full-screen ad may appear once per launch. Ads are served by Google AdMob, which may collect and process:</p>
-<ul>
-  <li>the Android advertising ID, IP address and device information (model, OS, language);</li>
-  <li>ad interaction data (impressions, taps) and SDK diagnostic information.</li>
-</ul>
-<p>In the European Economic Area, the UK and Switzerland, the app asks for consent at first launch through Google's consent management platform: you can accept personalised ads, limit them to non-personalised ads, or manage individual purposes. AdMob does not receive your family tree data. You can reset or delete your advertising ID in Android settings (<em>Privacy → Ads</em>). More: <a href="https://policies.google.com/technologies/partner-sites">how Google uses data from partner apps</a> and <a href="https://policies.google.com/privacy">Google privacy policy</a>.</p>
-
-<table>
-<tr><th>Service</th><th>When</th><th>Data sent</th><th>Legal basis (GDPR)</th></tr>
-<tr><td>Nominatim</td><td>Place search/normalization, if enabled</td><td>Place text, IP</td><td>Performing the requested feature (Art. 6(1)(b)) / legitimate interest</td></tr>
-<tr><td>CARTO</td><td>Opening the map</td><td>Map area, app key, package, IP</td><td>Performing the requested feature</td></tr>
-<tr><td>Google AdMob</td><td>Using the app</td><td>Advertising ID, IP, device and ad data</td><td>Consent (Art. 6(1)(a)) for personalised ads; legitimate interest for non-personalised ads, where permitted</td></tr>
-</table>
-
-<h2>5. Permissions</h2>
-<ul>
-  <li><strong>Camera</strong>: only to take a person's photo, when you ask.</li>
-  <li><strong>Photos and files</strong>: through the system picker, the app accesses only the images and files you select.</li>
-  <li><strong>Internet</strong>: for place search, map background and ads.</li>
-</ul>
-<p>The app does not use device location, contacts, microphone or other phone data.</p>
-
-<h2>6. Retention and security</h2>
-<p>Family tree data stays on the device until you delete it or uninstall the app. Communication with external services uses encrypted connections (HTTPS). Protect your phone with a screen lock and keep backup files somewhere safe: they contain personal data.</p>
-
-<h2>7. Your rights</h2>
-<p>Because your family tree data is only on your device, you can view, correct, export and delete it directly in the app. For data processed by Google, the OpenStreetMap Foundation and CARTO, contact them according to their privacy policies. You can withdraw or change your ad consent at any time by reinstalling the app or from the consent options, when available. You also have the right to lodge a complaint with your data protection authority (in Italy, the <a href="https://www.garanteprivacy.it">Garante per la protezione dei dati personali</a>).</p>
-
-<h2>8. Children</h2>
-<p>GeneAlley is not directed at children under 13 (under 14 in Italy) and does not knowingly collect data about them through advertising. Data about minor relatives entered in the tree stays only on the device of the person who entered it.</p>
-
-<h2>9. Changes</h2>
-<p>This policy may be updated, for example if the app's features or the services it uses change. The date at the top shows the latest version.</p>
-
-<h2>10. Contact</h2>
-<p>Privacy questions: <strong>francescopio.prencipe@gmail.com</strong>.</p>
+  <!-- DOWNLOAD -->
+  <section id="scarica" class="final">
+    <div class="wrap">
+      <span class="brand">GeneAlley</span>
+      <p>Inizia oggi dal primo ritratto: il resto dell'albero crescerà con te.</p>
+      <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=it.pfp.GeneAlley">Scarica da Google Play</a>
+    </div>
+  </section>
 </main>
 
 <footer>
-  <span data-l="it">Dati delle mappe © OpenStreetMap contributors, © CARTO.</span>
-  <span data-l="en">Map data © OpenStreetMap contributors, © CARTO.</span>
+  <div class="wrap">
+    <span>© 2026 PFP · GeneAlley</span>
+    <span>Dati cartografici © OpenStreetMap contributors, © CARTO</span>
+  </div>
 </footer>
-</div>
 
-<script>
-(function(){
-  function apply(){
-    var h=(location.hash||'').replace('#','');
-    var l=(h==='en'||h==='it')?h:((navigator.language||'it').toLowerCase().indexOf('it')===0?'it':'en');
-    document.body.className=l;
-    document.documentElement.lang=l;
-    document.getElementById('b-it').className=l==='it'?'on':'';
-    document.getElementById('b-en').className=l==='en'?'on':'';
-    document.title=l==='it'?'GeneAlley – Informativa sulla privacy':'GeneAlley – Privacy Policy';
-  }
-  window.addEventListener('hashchange',apply);
-  apply();
-})();
-</script>
 </body>
 </html>
