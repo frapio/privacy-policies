@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PFP - online</title>
+  <meta name="description" content="Applicazioni pubblicate da PFP e relative informative sulla privacy.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F6F4EF;
+      --card: #FFFFFF;
+      --ink: #222;
+      --muted: #5f6368;
+      --line: #E4E0D6;
+      --link: #0066cc;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Figtree", Arial, sans-serif;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 60px 20px 40px;
+      line-height: 1.6;
+      color: var(--ink);
+      background: var(--bg);
+    }
+    header { text-align: center; margin-bottom: 44px; }
+    h1 { font-size: 30px; margin: 0 0 8px; }
+    header p { color: var(--muted); margin: 0; }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,.08); }
+
+    .cover {
+      height: 190px;
+      display: grid;
+      place-items: center;
+      position: relative;
+    }
+    .cover svg { max-height: 170px; width: auto; }
+
+    .body { padding: 22px 24px 24px; display: flex; flex-direction: column; flex: 1; }
+    .body h2 { font-size: 22px; margin: 0 0 4px; }
+    .tag {
+      display: inline-block; align-self: flex-start; font-size: 12px; font-weight: 600;
+      padding: 3px 10px; border-radius: 999px; margin-bottom: 12px;
+    }
+    .body p { color: var(--muted); margin: 0 0 14px; font-size: 15px; }
+    .body ul { list-style: none; padding: 0; margin: 0 0 18px; font-size: 14px; }
+    .body li { padding-left: 22px; position: relative; margin-bottom: 6px; color: #3c4043; }
+    .body li::before { content: "✓"; position: absolute; left: 0; font-weight: 700; }
+
+    .actions { margin-top: auto; display: flex; flex-wrap: wrap; gap: 10px; }
+    .btn {
+      display: inline-block; padding: 10px 18px; border-radius: 999px;
+      font-weight: 600; font-size: 14px; text-decoration: none;
+    }
+    .btn-outline { border: 1px solid var(--line); color: var(--ink); background: #fff; }
+    .btn-outline:hover { border-color: #bbb; }
+
+    /* GeneAlley */
+    .genealley .cover {
+      background:
+        radial-gradient(ellipse 70% 60% at 15% 10%, rgba(157,179,154,.45), transparent 70%),
+        radial-gradient(ellipse 60% 50% at 90% 90%, rgba(241,198,168,.55), transparent 70%),
+        #F2EBDD;
+    }
+    .genealley h2 { font-family: "Great Vibes", cursive; font-weight: 400; font-size: 38px; color: #3F5B45; line-height: 1.1; }
+    .genealley .tag { background: #DCE8D6; color: #3F5B45; }
+    .genealley li::before { color: #6F8F6B; }
+    .genealley .btn-main { background: #3F5B45; color: #FBF7EF; }
+
+    /* Numis */
+    .numis .cover { background: linear-gradient(135deg, #F3E9D2, #E2CFA4); }
+    .numis .tag { background: #F3E9D2; color: #8A6A22; }
+    .numis li::before { color: #B08A3E; }
+    .numis .btn-main { background: #8A6A22; color: #fff; }
+
+    /* SottoControllo */
+    .sottocontrollo .cover { background: linear-gradient(135deg, #E3ECF7, #C6D7EE); }
+    .sottocontrollo .tag { background: #E3ECF7; color: #2F5A8F; }
+    .sottocontrollo li::before { color: #2F5A8F; }
+    .sottocontrollo .btn-main { background: #2F5A8F; color: #fff; }
+
+    footer { text-align: center; color: var(--muted); font-size: 13px; margin-top: 48px; }
+
+    @media (max-width: 900px) { .cards { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 620px) { .cards { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>PFP Online</h1>
+  <p>Qui puoi trovare le applicazioni pubblicate da PFP e le relative informative sulla privacy.</p>
+</header>
+
+<main class="cards">
+
+  <!-- GeneAlley -->
+  <article class="card genealley">
+    <div class="cover">
+      <svg viewBox="0 0 220 170" role="img" aria-label="Albero genealogico a ritratti di GeneAlley">
+        <defs>
+          <linearGradient id="ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9D9C6"/><stop offset="1" stop-color="#C9B49E"/></linearGradient>
+          <linearGradient id="gb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D7E3D1"/><stop offset="1" stop-color="#A9BFA4"/></linearGradient>
+          <g id="gface"><circle r="7" cy="-3" fill="#F4E3D3"/><path d="M-11 12 a11 9 0 0 1 22 0z" fill="#B9A08A"/></g>
+          <ellipse id="gleaf" rx="4.5" ry="2.3" fill="#8FAA8A"/>
+          <ellipse id="gleaf2" rx="4" ry="2" fill="#6F8F6B"/>
+        </defs>
+        <g stroke="#7A5A43" fill="none" stroke-linecap="round">
+          <path d="M70 48 C70 66 110 64 110 84 M150 48 C150 66 110 64 110 84" stroke-width="3"/>
+          <path d="M110 84 C110 100 110 104 110 112" stroke-width="2.6"/>
+          <path d="M110 112 C96 118 64 116 58 128 M110 112 C110 118 110 122 110 128 M110 112 C124 118 156 116 162 128" stroke-width="2.2"/>
+        </g>
+        <use href="#gleaf" transform="translate(80 62) rotate(-30)"/>
+        <use href="#gleaf2" transform="translate(140 62) rotate(30)"/>
+        <use href="#gleaf" transform="translate(116 98) rotate(60)"/>
+        <use href="#gleaf2" transform="translate(80 118) rotate(-10)"/>
+        <use href="#gleaf" transform="translate(140 118) rotate(10)"/>
+
+        <g transform="translate(70 30)"><circle r="20" fill="url(#ga)" stroke="#8FB6D6" stroke-width="3"/><clipPath id="k1"><circle r="18"/></clipPath><g clip-path="url(#k1)"><use href="#gface" transform="translate(0 4)"/></g></g>
+        <g transform="translate(150 30)"><circle r="20" fill="url(#gb)" stroke="#E7A3B1" stroke-width="3"/><clipPath id="k2"><circle r="18"/></clipPath><g clip-path="url(#k2)"><use href="#gface" transform="translate(0 4)"/></g></g>
+        <g transform="translate(58 144)"><circle r="16" fill="url(#gb)" stroke="#E7A3B1" stroke-width="3"/><clipPath id="k3"><circle r="14"/></clipPath><g clip-path="url(#k3)"><use href="#gface" transform="translate(0 4) scale(.8)"/></g></g>
+        <g transform="translate(110 144)"><circle r="19" fill="url(#ga)" stroke="#8FB6D6" stroke-width="3"/><circle r="23" fill="none" stroke="#F1C6A8" stroke-width="2" stroke-dasharray="3 3"/><clipPath id="k4"><circle r="17"/></clipPath><g clip-path="url(#k4)"><use href="#gface" transform="translate(0 4) scale(.9)"/></g></g>
+        <g transform="translate(162 144)"><circle r="16" fill="url(#gb)" stroke="#8FB6D6" stroke-width="3"/><clipPath id="k5"><circle r="14"/></clipPath><g clip-path="url(#k5)"><use href="#gface" transform="translate(0 4) scale(.8)"/></g></g>
+      </svg>
+    </div>
+    <div class="body">
+      <h2>GeneAlley</h2>
+      <span class="tag">Android · Albero genealogico</span>
+      <p>Costruisci l'albero della tua famiglia con foto, date e luoghi. Funziona offline: tutti i dati restano sul tuo telefono.</p>
+      <ul>
+        <li>Albero a ritratti con parentele e rami</li>
+        <li>Foto, ricorrenze e mappa dei luoghi di nascita</li>
+        <li>PDF su pergamena e backup in ZIP</li>
+      </ul>
+      <div class="actions">
+        <a class="btn btn-main" href="app/genealley/">Scopri l'app</a>
+        <a class="btn btn-outline" href="app/genealley/privacy/">Privacy Policy</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- Numis -->
+  <article class="card numis">
+    <div class="cover">
+      <svg viewBox="0 0 160 120" role="img" aria-label="Monete di Numis">
+        <circle cx="62" cy="62" r="40" fill="#D9B45A" stroke="#A9842F" stroke-width="4"/>
+        <circle cx="62" cy="62" r="30" fill="none" stroke="#A9842F" stroke-width="1.5" stroke-dasharray="2 3"/>
+        <circle cx="104" cy="52" r="32" fill="#C9CCD1" stroke="#8E949C" stroke-width="4"/>
+        <circle cx="104" cy="52" r="23" fill="none" stroke="#8E949C" stroke-width="1.5" stroke-dasharray="2 3"/>
+      </svg>
+    </div>
+    <div class="body">
+      <h2>Numis</h2>
+      <span class="tag">Android · Catalogo monete</span>
+      <p>Cataloga la tua collezione di monete con schede dettagliate e foto. Semplice per chi inizia, completa per i collezionisti esperti.</p>
+      <ul>
+        <li>Schede con conservazione, zecca, tiratura e cataloghi</li>
+        <li>Foto fronte/retro, collezioni e ricerca con filtri</li>
+        <li>Import da Numista, valori, statistiche e mappa</li>
+      </ul>
+      <div class="actions">
+        <a class="btn btn-main" href="app/numis/">Scopri l'app</a>
+        <a class="btn btn-outline" href="app/numis/privacy/">Privacy Policy</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- SottoControllo -->
+  <article class="card sottocontrollo">
+    <div class="cover">
+      <svg viewBox="0 0 120 120" aria-hidden="true">
+        <rect x="22" y="18" width="76" height="88" rx="12" fill="#fff" stroke="#2F5A8F" stroke-width="4"/>
+        <rect x="44" y="10" width="32" height="16" rx="6" fill="#2F5A8F"/>
+        <path d="M38 50l8 8 14-14M38 80l8 8 14-14" stroke="#2F5A8F" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M68 54h16M68 84h16" stroke="#9FB7D8" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="body">
+      <h2>SottoControllo</h2>
+      <span class="tag">Android</span>
+      <p>Descrizione in arrivo.</p>
+      <div class="actions">
+        <a class="btn btn-main" href="app/sottocontrollo/">Scopri l'app</a>
+        <a class="btn btn-outline" href="app/sottocontrollo/privacy/">Privacy Policy</a>
+      </div>
+    </div>
+  </article>
+
+</main>
+
+<footer>© 2026 PFP</footer>
+
+</body>
+</html>
